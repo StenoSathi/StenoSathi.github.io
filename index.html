@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STENO SATHI — Fast. Accurate. Your Remote Chamber Assistant.</title>
+
+  <!-- Favicon (your logo) -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/MD0fZvrD/Chat-GPT-Image-Nov-29-2025-03-47-54-PM-removebg-preview.png">
+
+  <meta name="description" content="Steno Sathi - Remote stenographer & legal secretariat services for advocates across India. Live dictation, audio transcription, e-filing, diary digitalisation and urgent steno-on-call." />
+  <meta name="keywords" content="Stenographer, legal typing, e-filing, transcription, advocates, digital diary, urgent steno, dictation" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="author" content="Steno Sathi">
+
+  <style>
+    /* Basic reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:#f7f9fc;
+      color:#112233;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-size:16px;
+    }
+
+    /* Container */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* Header / Hero */
+    header{
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0.35)),
+        url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color:#fff;
+      padding:100px 20px 80px;
+      text-align:center;
+    }
+    /* About Us */
+    .about-box{
+      background:#fff;
+      padding:26px;
+      border-radius:12px;
+      box-shadow:0 8px 24px rgba(2,6,23,0.05);
+      margin-top:16px;
+      color:#334155;
+      font-size:15.5px;
+      line-height:1.65;
+    }
+
+    /* Logo + title inline */
+    .logo-title {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      margin-bottom:10px;
+      flex-wrap:wrap;
+    }
+    .logo-title img {
+      height:68px;
+      width:auto;
+      object-fit:contain;
+      border-radius:8px;
+      filter:drop-shadow(0 3px 8px rgba(0,0,0,0.25));
+    }
+
+    /* Heading colours matching your sample */
+    .title-steno{ color:#003047; } /* deep teal/blue */
+    .title-sathi{
+      background:linear-gradient(90deg,#1FA66C,#20C097);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      display:inline-block;
+    }
+
+    header h1{font-size:44px;letter-spacing:1px;margin-bottom:8px;font-weight:700}
+    header p{font-size:18px;color:rgba(255,255,255,0.95);margin-bottom:20px}
+    .hero-ctas{display:inline-flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:12px 20px;border-radius:40px;font-weight:700;text-decoration:none;border:0;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .btn-primary{background:#00a86b;color:#fff;box-shadow:0 8px 20px rgba(0,168,107,0.12)}
+    .btn-alt{background:#ffcc00;color:#111}
+    .btn:hover{transform:translateY(-3px)}
+
+    /* Sections */
+    section.section{padding:60px 0}
+    .section h2{font-size:28px;color:#003f5c;margin-bottom:10px}
+    .section p.lead{color:#556471;margin-bottom:18px}
+
+    /* Grids */
+    .grid{display:grid;gap:20px}
+    .services-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{
+      background:#fff;padding:22px;border-radius:12px;box-shadow:0 8px 24px rgba(13,38,59,0.06);
+    }
+    .card i{font-size:34px;color:#00a86b;margin-bottom:12px}
+    .card h3{margin-bottom:8px;color:#073645}
+    .card p{color:#556471;font-size:15px}
+
+    /* Pricing */
+    .pricing-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .price-card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 18px rgba(2,6,23,0.04);text-align:left}
+    .price-card h3{color:#033f52;margin-bottom:8px}
+    .price{font-weight:800;color:#033f52;font-size:20px;margin-bottom:6px}
+    .note{color:#6b7280;font-size:14px}
+
+    /* Trust/Why */
+    .features-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .feature{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 18px rgba(2,6,23,0.03);text-align:center}
+    .feature i{font-size:28px;color:#00a86b;margin-bottom:10px}
+    .feature h4{margin-bottom:6px;color:#073645}
+
+    /* Testimonials */
+    .testimonials-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:18px}
+    .testimonial{
+      background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04);
+    }
+    .testimonial h4{color:#073645;margin-bottom:8px;font-size:16px}
+    .testimonial p{color:#556471;font-size:15px}
+
+    /* Privacy */
+    .privacy{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04);margin-top:12px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .contact-card{background:linear-gradient(180deg,#ffffff,#fbfffb);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+    .contact-card a{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#003f5c;color:#fff;text-decoration:none;font-weight:700}
+
+    /* Footer */
+    footer{background:#003f5c;color:#fff;padding:18px;text-align:center;border-top-left-radius:10px;border-top-right-radius:10px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      header{padding:64px 16px}
+      .contact-grid{grid-template-columns:1fr}
+      .logo-title img{height:60px}
+    }
+    @media (max-width:520px){
+      header h1{font-size:28px}
+      header p{font-size:15px}
+      .btn{padding:10px 14px}
+    }
+
+    /* Accessibility focus styles */
+    a:focus, button:focus, input:focus{outline:3px solid rgba(0,168,107,0.16);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <!-- Header / HERO -->
+  <header role="banner" aria-label="Steno Sathi Header">
+    <div class="container">
+
+      <!-- Inline logo + heading -->
+      <div class="logo-title" aria-hidden="false">
+        <img src="https://i.ibb.co/hJ97cwbj/Screenshot-2025-11-29-160429.png" alt="Steno Sathi logo">
+        <h1 aria-label="Steno Sathi">
+          <span class="title-steno">STENO</span>
+          <span class="title-sathi"> SATHI</span>
+        </h1>
+      </div>
+
+      <p>Fast. Accurate. Your Remote Chamber Assistant.</p>
+
+      <div class="hero-ctas" role="region" aria-label="Primary actions">
+        <a class="btn btn-primary" href="#" aria-label="Message Steno Sathi on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
+        <a class="btn btn-alt" href="#contact" aria-label="Request a Call Back">Request a Call Back</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- SERVICES -->
+    <section class="section" id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <h2 id="servicesTitle">Our Services</h2>
+        <p class="lead">We offer a focused set of remote stenography and secretariat services tailored for advocates and law firms.</p>
+
+        <div class="grid services-grid" role="list">
+          <article class="card" role="listitem" aria-labelledby="s1">
+            <i class="fas fa-keyboard" aria-hidden="true"></i>
+            <h3 id="s1">Legal Typing</h3>
+            <p>Formatting, transcription, and typing of legal notices, petitions, affidavits, pleadings and other court documents — delivered in editable formats.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s2">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+            <h3 id="s2">E-Filing Assistance</h3>
+            <p>PDF merging, size optimisation, bookmarking, page numbering, annexure indexing, and portal-ready bundle preparation for e-filing.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s3">
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            <h3 id="s3">Urgent Steno On-Call</h3>
+            <p>Priority stenographer support — available within 2 hours for urgent drafting, formatting and same-day submissions.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s4">
+            <i class="fas fa-video" aria-hidden="true"></i>
+            <h3 id="s4">Dictation on Video Conferencing</h3>
+            <p>Live dictation during Zoom / Google Meet hearings or client calls; we type in real-time and provide editable drafts immediately after.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s5">
+            <i class="fas fa-file-alt" aria-hidden="true"></i>
+            <h3 id="s5">Typed Copies of Scanned Documents</h3>
+            <p>Accurate typed copies of scanned judgments, orders and documents — ideal for citations and editing (up to 20 pages per package).</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s6">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+            <h3 id="s6">Digitalisation of Advocate's Diary</h3>
+            <p>Convert physical case diaries into organised, searchable digital records with backups and export support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  <!-- ABOUT US -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="lead">Professional, experienced and committed to confidentiality.</p>
+
+      <div class="about-box">
+        Steno Sathi is a specialised remote stenography and legal-secretarial support service built exclusively for advocates, law firms and chambers across India. 
+        Every stenographer working with us has <strong>at least 5+ years of hands-on experience</strong> in legal assistance, drafting support, courtroom documentation, dictation handling and e-filing preparation.<br><br>
+
+        Our team is trained to understand the structure of pleadings, annexures, cause lists, formatting rules and court-specific requirements — giving every advocate the advantage of a skilled personal steno without the need for an in-chamber employee. 
+        <br><br>
+
+        We combine speed, accuracy and confidentiality to deliver work that meets the high-pressure demands of litigation. Whether it’s an urgent filing, a last-minute dictation, or long-format documentation, Steno Sathi ensures your work is done right — and always on time.
+      </div>
+    </div>
+  </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="section" id="why" aria-labelledby="whyTitle" style="background:#eef4f7;">
+      <div class="container">
+        <h2 id="whyTitle">Why Advocates Choose Steno Sathi</h2>
+        <p class="lead">We make administrative legal work simpler so advocates can focus on practice.</p>
+
+        <div class="grid features-grid" style="margin-top:20px">
+          <div class="feature" role="article">
+            <i class="fas fa-stopwatch" aria-hidden="true"></i>
+            <h4>Fast Turnaround</h4>
+            <p style="color:#556471">Same-day and urgent options — stenographer available within 2 hours for priority tasks.</p>
+          </div>
+
+          <div class="feature" role="article">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            <h4>Accurate Formatting</h4>
+            <p style="color:#556471">Court-accepted pagination, spacing and annexure sequencing — files ready for upload or printing.</p>
+          </div>
+
+          <div class="feature" role="article">
+            <i class="fas fa-credit-card" aria-hidden="true"></i>
+            <h4>Multiple Payment Options</h4>
+            <p style="color:#556471">UPI, Credit Card, Debit Card, Netbanking — convenient payment choices for smooth processing.</p>
+          </div>
+
+          <div class="feature" role="article">
+            <i class="fas fa-headset" aria-hidden="true"></i>
+            <h4>Reliable Communication</h4>
+            <p style="color:#556471">WhatsApp, Email & Call support to coordinate quickly and clearly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing" aria-labelledby="pricingTitle">
+      <div class="container">
+        <h2 id="pricingTitle">Pricing</h2>
+        <p class="lead">Clear, transparent rates. Contact for bulk discounts or monthly retainer plans.</p>
+
+        <div class="grid pricing-grid" style="margin-top:18px">
+          <div class="price-card card" role="article" aria-labelledby="p1">
+            <h3 id="p1">Live On-Call Dictation</h3>
+            <div class="price">₹1,000 per hour</div>
+            <p class="note">Real-time typing while on audio/video calls.</p>
+          </div>
+
+          <div class="price-card card" role="article" aria-labelledby="p2">
+            <h3 id="p2">Audio Recorded Dictation</h3>
+            <div class="price">₹2,000 per hour</div>
+            <p class="note">Transcription of recorded audio files.</p>
+          </div>
+
+          <div class="price-card card" role="article" aria-labelledby="p3">
+            <h3 id="p3">E-Filing Assistance</h3>
+            <div class="price">₹500 – ₹1,000 per case</div>
+            <p class="note">Includes PDF prep, bookmarking, compression, renaming and upload guidance.</p>
+          </div>
+
+          <div class="price-card card" role="article" aria-labelledby="p4">
+            <h3 id="p4">Urgent Steno-On-Call</h3>
+            <div class="price">₹1,500 per hour</div>
+            <p class="note">Stenographer available within 2 hours for priority tasks.</p>
+          </div>
+
+          <div class="price-card card" role="article" aria-labelledby="p5">
+            <h3 id="p5">Typed Copies of Scanned Docs / Judgments</h3>
+            <div class="price">₹500 (up to 20 pages)</div>
+            <p class="note">Accurate typed versions of scans and judgments; larger batches quoted separately.</p>
+          </div>
+
+          <div class="price-card card" role="article" aria-labelledby="p6">
+            <h3 id="p6">Digitalisation of Advocate's Diary</h3>
+            <div class="price">₹2,000 (up to 100 cases)</div>
+            <p class="note">Organised digital diary with searchable records and backups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials" aria-labelledby="testimonialsTitle" style="background:#f8fcff;">
+      <div class="container">
+        <h2 id="testimonialsTitle">What Advocates Say About Us</h2>
+        <p class="lead">Trusted by busy chambers across India.</p>
+
+        <div class="grid testimonials-grid" role="list">
+          <div class="testimonial" role="listitem">
+            <h4>Adv. R. Mehta — Delhi High Court</h4>
+            <p>“Steno Sathi has become an extension of my chamber — reliable, confidential and incredibly fast. They saved me during a last-minute filing.”</p>
+          </div>
+
+          <div class="testimonial" role="listitem">
+            <h4>Adv. S. Purohit — Jaipur District Court</h4>
+            <p>“Impeccable formatting and responsive communication. Their urgent steno-on-call service is a lifesaver.”</p>
+          </div>
+
+          <div class="testimonial" role="listitem">
+            <h4>Adv. M. Nair — Bombay High Court</h4>
+            <p>“Very professional. Drafts come back court-ready and the 24-hour deletion policy gives me peace of mind about confidentiality.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY / DATA DELETION -->
+    <section class="section" id="privacy" aria-labelledby="privacyTitle">
+      <div class="container">
+        <h2 id="privacyTitle">Your Data, Protected</h2>
+        <p class="lead">Confidentiality is essential in legal work — we treat it as such.</p>
+
+        <div class="privacy">
+          <h3>Automatic 24-Hour Data Deletion</h3>
+          <p>All documents, audio files, drafts and PDFs you share with Steno Sathi are <strong>automatically deleted within 24 hours</strong> after delivery. We do not store or archive client case files on our systems beyond the delivery window.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contactTitle" style="background:#f1fff6;">
+      <div class="container">
+        <h2 id="contactTitle">Contact Us</h2>
+        <p class="lead">Quickest way to start: message on WhatsApp or request a callback and we'll reach you within working hours.</p>
+
+        <div class="contact-grid" style="margin-top:18px">
+          <div>
+            <div class="contact-card">
+              <h3>How to avail our services</h3>
+              <ol style="margin-top:8px;color:#556471;padding-left:18px">
+                <li>Contact us on WhatsApp explaining your task.</li>
+                <li>Receive quote & TAT in minutes.</li>
+                <li>Pay via preferred method (UPI / Bank transfer / Card).</li>
+                <li>Receive typed & formatted drafts in a secured password protected folder.</li>
+              </ol>
+            </div>
+
+            <div class="card" style="margin-top:14px;padding:18px">
+              <h3>Operational Hours</h3>
+              <p style="color:#556471;margin-top:6px">9:00 AM — 10:00 PM, Monday — Sunday. Urgent/on-call support available subject to availability.</p>
+            </div>
+          </div>
+
+          <aside class="contact-card" aria-label="Contact card">
+            <a href="#" aria-label="Message on WhatsApp" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:10px"><i class="fab fa-whatsapp" style="font-size:18px;color:#00a86b"></i> WhatsApp: +91-XXXXXXXXXX</a>
+            <a href="mailto:contact@stenosathi.in" aria-label="Email Steno Sathi" style="display:inline-flex;align-items:center;gap:10px"><i class="fas fa-envelope" style="color:#003f5c"></i> contact@stenosathi.in</a>
+            <div style="margin-top:12px;color:#556471;font-size:14px">Multiple payment options: UPI / Bank transfer / Card</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Steno Sathi — Fast. Accurate. Your Remote Chamber Assistant.
+    </div>
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var target = this.getAttribute('href');
+        if(target && target.length>1){
+          e.preventDefault();
+          var el = document.querySelector(target);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
