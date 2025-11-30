@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: 
+
+# Allow AI bots for training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://stenosathi.in/sitemap.xml
