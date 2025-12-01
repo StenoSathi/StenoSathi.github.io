@@ -152,9 +152,17 @@
 
     /* Accessibility focus styles */
     a:focus, button:focus, input:focus{outline:3px solid rgba(0,168,107,0.16);outline-offset:3px}
+	   /* Black Friday Banner */
+ .sale-banner{background:linear-gradient(90deg,#ff1744,#d50000);color:#fff;padding:16px 20px;text-align:center;font-weight:700;font-size:16px;box-shadow:0 4px 12px rgba(255,23,68,0.3)}
+ .sale-banner .timer{font-size:14px;margin-top:6px;display:inline-block}
+ .timer-item{display:inline-block;margin:0 6px;font-weight:600}
+ .strikethrough{text-decoration:line-through;color:#999;margin-right:8px}
+ .discount-badge{background:#ffeb3b;color:#000;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:800;margin-left:4px}
   </style>
 </head>
 <body>
+	 <!-- Black Friday Sale Banner -->
+ <div class="sale-banner">🔥 50% BLACK FRIDAY SALE - LIMITED TIME OFFER! 🔥<div class="timer"><span class="timer-item"><strong id="days">0</strong>d</span> <span class="timer-item"><strong id="hours">0</strong>h</span> <span class="timer-item"><strong id="minutes">0</strong>m</span> <span class="timer-item"><strong id="seconds">0</strong>s</span></div></div>
   <!-- Header / HERO -->
   <header role="banner" aria-label="Steno Sathi Header">
     <div class="container">
@@ -286,42 +294,42 @@
         <div class="grid pricing-grid" style="margin-top:18px">
           <div class="price-card card" role="article" aria-labelledby="p1">
             <h3 id="p1">Live On-Call Dictation</h3>
-            <div class="price">₹1,000 per hour</div>
+            <div class="price"><span class="strikethrough">₹1,000</span> <strong style="color:#d50000;font-size:18px">₹500</strong> <span class="discount-badge">50% OFF</span> per hour</div>
             <p class="note">Real-time typing while on audio/video calls.</p>
           </div>
 
           <div class="price-card card" role="article" aria-labelledby="p2">
             <h3 id="p2">Audio Recorded Dictation</h3>
-            <div class="price">₹2,000 per hour</div>
+            <div class="price"><span class="strikethrough">₹2,000</span> <strong style="color:#d50000;font-size:18px">₹1,000</strong> <span class="discount-badge">50% OFF</span> per hour</div>
             <p class="note">Transcription of recorded audio files.</p>
           </div>
 
           <div class="price-card card" role="article" aria-labelledby="p3">
             <h3 id="p3">E-Filing Assistance</h3>
-            <div class="price">₹500 – ₹1,000 per case</div>
+            <div class="price"><span class="strikethrough">₹500 – ₹1,000</span> <strong style="color:#d50000;font-size:18px">₹250 - ₹500</strong> <span class="discount-badge">50% OFF</span> per case</div>
             <p class="note">Includes PDF prep, bookmarking, compression, renaming and upload guidance.</p>
           </div>
 
           <div class="price-card card" role="article" aria-labelledby="p4">
             <h3 id="p4">Urgent Steno-On-Call</h3>
-            <div class="price">₹1,500 per hour</div>
+            <div class="price"><span class="strikethrough">₹1,500</span> <strong style="color:#d50000;font-size:18px">₹750</strong> <span class="discount-badge">50% OFF</span> per hour</div>
             <p class="note">Stenographer available within 2 hours for priority tasks.</p>
           </div>
 
           <div class="price-card card" role="article" aria-labelledby="p5">
             <h3 id="p5">Typed Copies of Scanned Docs / Judgments</h3>
-            <div class="price">₹500 (up to 20 pages)</div>
+            <div class="price"><span class="strikethrough">₹500</span> <strong style="color:#d50000;font-size:18px">₹250</strong> <span class="discount-badge">50% OFF</span> (up to 20 pages)</div>
             <p class="note">Accurate typed versions of scans and judgments; larger batches quoted separately.</p>
           </div>
 
           <div class="price-card card" role="article" aria-labelledby="p6">
             <h3 id="p6">Digitalisation of Advocate's Diary</h3>
-            <div class="price">₹2,000 (up to 100 cases)</div>
+            <div class="price"><span class="strikethrough">₹2,000</span> <strong style="color:#d50000;font-size:18px">₹1,000</strong> <span class="discount-badge">50% OFF</span> (up to 100 cases)</div>
             <p class="note">Organised digital diary with searchable records and backups.</p>
           </div>
 	<div class="price-card card" role="article" aria-labelledby="p7">
             <h3 id="p7">Arbitration (In Person)</h3>
-            <div class="price">₹3,000 per session.</div>
+            <div class="price"><span class="strikethrough">₹3,000</span> <strong style="color:#d50000;font-size:18px">₹1,500</strong> <span class="discount-badge">50% OFF</span> per session.</div>
             <p class="note">On-site arbitration stenography and assistance.</p>
           </div>
 	<div class="price-card card" role="article" aria-labelledby="p8">
@@ -428,8 +436,38 @@
         }
       });
     });
+	   // Black Friday Countdown Timer
+ function startCountdown() {
+  // Get next Sunday at 11:59 PM IST
+  const now = new Date();
+  let endDate = new Date();
+  endDate.setHours(23, 59, 59, 999);
+  const daysUntilSunday = (0 - now.getDay() + 7) % 7 || 7;
+  endDate.setDate(endDate.getDate() + daysUntilSunday);
+  
+  const updateTimer = () => {
+    const now = new Date();
+    const diff = endDate - now;
+    if (diff <= 0) return;
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  };
+  
+  updateTimer();
+  setInterval(updateTimer, 1000);
+ }
+ startCountdown();
   </script>
 </body>
 </html>
+
 
 
