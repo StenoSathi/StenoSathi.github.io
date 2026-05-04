@@ -342,7 +342,7 @@
       return;
     }
     grid.innerHTML = pricing.map(function(p, i) {
-      var base    = parseFloat(String(p.base_price).replace(/[^0-9.]/g,'')) || 0;
+      var base    = parseFloat(String(p.base_price).replace(/,/g,'').replace(/[^0-9.]/g,'')) || 0;
       var hasDisc = discountPct > 0 && discountPct < 100;
       var discAmt = hasDisc ? Math.round(base * (1 - discountPct/100)) : base;
 

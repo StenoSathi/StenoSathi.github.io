@@ -290,8 +290,6 @@
     flushed = true;
 
     // Finalise session
-    session.session_duration_sec = Math.round((Date.now() - new Date().getTime()) / 1000);
-    // Recalculate properly
     session.session_duration_sec = Math.round(performance.now() / 1000);
     var d = session.session_duration_sec;
     session.duration_bucket = d < 30 ? '<30s' : d < 60 ? '30-60s' : d < 180 ? '1-3m' : d < 300 ? '3-5m' : '5m+';
@@ -334,8 +332,8 @@
       time_per_section:       session.time_per_section,
       pricing_cards_hovered:  session.pricing_cards_hovered,
       service_cards_viewed:   session.service_cards_viewed,
-      testimonial_viewed:     session.testimonial_viewed,
-      countdown_timer_seen:   session.countdown_timer_seen,
+      testimonial_viewed:      session.testimonial_viewed,
+      countdown_timer_seen:    session.countdown_timer_seen,
       cta_clicks:             session.cta_clicks,
       whatsapp_clicks:        session.whatsapp_clicks,
       callback_form_clicks:   session.callback_form_clicks,
