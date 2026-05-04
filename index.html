@@ -1,14 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>STENO SATHI — Fast. Accurate. Your Remote Chamber Assistant.</title>
-	    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
-  <!-- Favicon (your logo) -->
-<link rel="icon" href="images/logo.jpg?v=2" type="image/jpeg">
-
+  <link rel="icon" href="images/logo.jpg?v=2" type="image/jpeg">
   <meta name="description" content="Steno Sathi - Remote stenographer & legal secretariat services for advocates across India. Live dictation, audio transcription, e-filing, diary digitalisation and urgent steno-on-call." />
   <meta name="keywords" content="Stenographer, legal typing, e-filing, transcription, advocates, digital diary, urgent steno, dictation" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
   <meta name="author" content="Steno Sathi">
 
   <style>
-    /* Basic reset */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
@@ -28,11 +26,7 @@
       -moz-osx-font-smoothing:grayscale;
       font-size:16px;
     }
-
-    /* Container */
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-    /* Header / Hero */
     header{
       background:
         linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0.35)),
@@ -41,7 +35,6 @@
       padding:100px 20px 80px;
       text-align:center;
     }
-    /* About Us */
     .about-box{
       background:#fff;
       padding:26px;
@@ -52,8 +45,6 @@
       font-size:15.5px;
       line-height:1.65;
     }
-
-    /* Logo + title inline */
     .logo-title {
       display:flex;
       justify-content:center;
@@ -69,16 +60,13 @@
       border-radius:8px;
       filter:drop-shadow(0 3px 8px rgba(0,0,0,0.25));
     }
-
-    /* Heading colours matching your sample */
-    .title-steno{ color:#003047; } /* deep teal/blue */
+    .title-steno{ color:#003047; }
     .title-sathi{
       background:linear-gradient(90deg,#1FA66C,#20C097);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       display:inline-block;
     }
-
     header h1{font-size:44px;letter-spacing:1px;margin-bottom:8px;font-weight:700}
     header p{font-size:18px;color:rgba(255,255,255,0.95);margin-bottom:20px}
     .hero-ctas{display:inline-flex;gap:12px;flex-wrap:wrap}
@@ -90,13 +78,9 @@
     .btn-primary{background:#00a86b;color:#fff;box-shadow:0 8px 20px rgba(0,168,107,0.12)}
     .btn-alt{background:#ffcc00;color:#111}
     .btn:hover{transform:translateY(-3px)}
-
-    /* Sections */
     section.section{padding:60px 0}
     .section h2{font-size:28px;color:#003f5c;margin-bottom:10px}
     .section p.lead{color:#556471;margin-bottom:18px}
-
-    /* Grids */
     .grid{display:grid;gap:20px}
     .services-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
     .card{
@@ -105,40 +89,26 @@
     .card i{font-size:34px;color:#00a86b;margin-bottom:12px}
     .card h3{margin-bottom:8px;color:#073645}
     .card p{color:#556471;font-size:15px}
-
-    /* Pricing */
     .pricing-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .price-card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 18px rgba(2,6,23,0.04);text-align:left}
     .price-card h3{color:#033f52;margin-bottom:8px}
     .price{font-weight:800;color:#033f52;font-size:20px;margin-bottom:6px}
     .note{color:#6b7280;font-size:14px}
-
-    /* Trust/Why */
     .features-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .feature{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 18px rgba(2,6,23,0.03);text-align:center}
     .feature i{font-size:28px;color:#00a86b;margin-bottom:10px}
     .feature h4{margin-bottom:6px;color:#073645}
-
-    /* Testimonials */
     .testimonials-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:18px}
     .testimonial{
       background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04);
     }
     .testimonial h4{color:#073645;margin-bottom:8px;font-size:16px}
     .testimonial p{color:#556471;font-size:15px}
-
-    /* Privacy */
     .privacy{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04);margin-top:12px}
-
-    /* Contact */
     .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
     .contact-card{background:linear-gradient(180deg,#ffffff,#fbfffb);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
     .contact-card a{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#003f5c;color:#fff;text-decoration:none;font-weight:700}
-
-    /* Footer */
     footer{background:#003f5c;color:#fff;padding:18px;text-align:center;border-top-left-radius:10px;border-top-right-radius:10px}
-
-    /* Responsive */
     @media (max-width:900px){
       header{padding:64px 16px}
       .contact-grid{grid-template-columns:1fr}
@@ -149,25 +119,33 @@
       header p{font-size:15px}
       .btn{padding:10px 14px}
     }
-
-    /* Accessibility focus styles */
     a:focus, button:focus, input:focus{outline:3px solid rgba(0,168,107,0.16);outline-offset:3px}
-	   /* Black Friday Banner */
- .sale-banner{background:linear-gradient(90deg,#ff1744,#d50000);color:#fff;padding:8px 20px;text-align:center;font-weight:700;font-size:16px;box-shadow:0 4px 12px rgba(255,23,68,0.3)}
- .sale-banner .timer{font-size:14px;margin-top:6px;display:inline-block}
- .timer-item{display:inline-block;margin:0 6px;font-weight:600}
- .strikethrough{text-decoration:line-through;color:#999;margin-right:8px}
- .discount-badge{background:#ffeb3b;color:#000;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:800;margin-left:4px}
+    .sale-banner{background:linear-gradient(90deg,#ff1744,#d50000);color:#fff;padding:8px 20px;text-align:center;font-weight:700;font-size:16px;box-shadow:0 4px 12px rgba(255,23,68,0.3)}
+    .sale-banner .timer{font-size:14px;margin-top:6px;display:inline-block}
+    .timer-item{display:inline-block;margin:0 6px;font-weight:600}
+    .strikethrough{text-decoration:line-through;color:#999;margin-right:8px}
+    .discount-badge{background:#ffeb3b;color:#000;padding:2px 6px;border-radius:4px;font-size:12px;font-weight:800;margin-left:4px}
+    /* Skeleton loader */
+    .skel{background:linear-gradient(90deg,#e8edf2 25%,#f4f6f8 50%,#e8edf2 75%);background-size:200% 100%;animation:skel 1.2s infinite;border-radius:8px;height:20px;margin-bottom:8px}
+    @keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
   </style>
 </head>
 <body>
-	 <!-- Black Friday Sale Banner -->
- <div class="sale-banner">🔥 50%  SALE - LIMITED TIME OFFER! 🔥<div class="timer"><span class="timer-item"><strong id="days">0</strong>d</span> <span class="timer-item"><strong id="hours">0</strong>h</span> <span class="timer-item"><strong id="minutes">0</strong>m</span> <span class="timer-item"><strong id="seconds">0</strong>s</span></div></div>
+
+  <!-- Sale Banner (dynamic) -->
+  <div class="sale-banner" id="saleBanner" style="display:none">
+    <span id="bannerText">🔥 50% SALE - LIMITED TIME OFFER! 🔥</span>
+    <div class="timer">
+      <span class="timer-item"><strong id="days">0</strong>d</span>
+      <span class="timer-item"><strong id="hours">0</strong>h</span>
+      <span class="timer-item"><strong id="minutes">0</strong>m</span>
+      <span class="timer-item"><strong id="seconds">0</strong>s</span>
+    </div>
+  </div>
+
   <!-- Header / HERO -->
   <header role="banner" aria-label="Steno Sathi Header">
     <div class="container">
-
-      <!-- Inline logo + heading -->
       <div class="logo-title" aria-hidden="false">
         <img src="images/logo.jpg" alt="Steno Sathi logo">
         <h1 aria-label="Steno Sathi">
@@ -175,117 +153,65 @@
           <span class="title-sathi"> SATHI</span>
         </h1>
       </div>
-
       <p>Fast. Accurate. Your Remote Chamber Assistant.</p>
-
       <div class="hero-ctas" role="region" aria-label="Primary actions">
-        <a class="btn btn-primary" href="https://wa.me/919217034234" aria-label="Message Steno Sathi on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
-        <a class="btn btn-alt" href="https://docs.google.com/forms/d/e/1FAIpQLSdzse67AzcSh4gof6JYdhrSjzijEvXLCqdnAiRQVhPWlayGMA/viewform?usp=dialog" target="_blank" aria-label="Request a Call Back">Request a Call Back</a>
+        <a class="btn btn-primary" href="https://wa.me/919217034234" aria-label="Message Steno Sathi on WhatsApp" data-track="whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
+        <a class="btn btn-alt" href="https://docs.google.com/forms/d/e/1FAIpQLSdzse67AzcSh4gof6JYdhrSjzijEvXLCqdnAiRQVhPWlayGMA/viewform?usp=dialog" target="_blank" aria-label="Request a Call Back" data-track="callback">Request a Call Back</a>
       </div>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
+
     <!-- SERVICES -->
     <section class="section" id="services" aria-labelledby="servicesTitle">
       <div class="container">
         <h2 id="servicesTitle">Our Services</h2>
         <p class="lead">We offer a focused set of remote stenography and secretariat services tailored for advocates and law firms.</p>
-
-        <div class="grid services-grid" role="list">
-          <article class="card" role="listitem" aria-labelledby="s1">
-            <i class="fas fa-keyboard" aria-hidden="true"></i>
-            <h3 id="s1">Legal Typing</h3>
-            <p>Formatting, transcription, and typing of legal notices, petitions, affidavits, pleadings and other court documents — delivered in editable formats.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s2">
-            <i class="fas fa-file-pdf" aria-hidden="true"></i>
-            <h3 id="s2">E-Filing Assistance</h3>
-            <p>PDF merging, size optimisation, bookmarking, page numbering, annexure indexing, and portal-ready bundle preparation for e-filing.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s3">
-            <i class="fas fa-bolt" aria-hidden="true"></i>
-            <h3 id="s3">Urgent Steno On-Call</h3>
-            <p>Priority stenographer support — available within 2 hours for urgent drafting, formatting and same-day submissions.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s4">
-            <i class="fas fa-video" aria-hidden="true"></i>
-            <h3 id="s4">Dictation on Video Conferencing</h3>
-            <p>Live dictation during Zoom / Google Meet hearings or client calls; we type in real-time and provide editable drafts immediately after.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s5">
-            <i class="fas fa-file-alt" aria-hidden="true"></i>
-            <h3 id="s5">Typed Copies of Scanned Documents</h3>
-            <p>Accurate typed copies of scanned judgments, orders and documents — ideal for citations and editing (up to 20 pages per package).</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s6">
-            <i class="fas fa-calendar-check" aria-hidden="true"></i>
-            <h3 id="s6">Digitalisation of Advocate's Diary</h3>
-            <p>Convert physical case diaries into organised, searchable digital records with backups and export support.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s7">
-            <i class="fas fa-gavel" aria-hidden="true"></i>
-            <h3 id="s7">Arbitration Support</h3>
-            <p>Stenography and documentation support for arbitration sessions — available both in-person and via video conference. Extra 25% discount on video conference mode.</p>
-          </article>
-
-          <article class="card" role="listitem" aria-labelledby="s8">
-            <i class="fas fa-language" aria-hidden="true"></i>
-            <h3 id="s8">Document Translation</h3>
-            <p>Professional translation of legal documents between languages — accurate, contextually appropriate, and formatted for legal use.</p>
-          </article>
+        <div class="grid services-grid" role="list" id="servicesGrid">
+          <!-- Skeleton -->
+          <div class="card"><div class="skel" style="height:34px;width:34px;border-radius:50%"></div><div class="skel" style="width:60%;margin-top:12px"></div><div class="skel"></div><div class="skel" style="width:80%"></div></div>
+          <div class="card"><div class="skel" style="height:34px;width:34px;border-radius:50%"></div><div class="skel" style="width:60%;margin-top:12px"></div><div class="skel"></div><div class="skel" style="width:80%"></div></div>
+          <div class="card"><div class="skel" style="height:34px;width:34px;border-radius:50%"></div><div class="skel" style="width:60%;margin-top:12px"></div><div class="skel"></div><div class="skel" style="width:80%"></div></div>
         </div>
       </div>
     </section>
-  <!-- ABOUT US -->
-  <section class="section" id="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p class="lead">Professional, experienced and committed to confidentiality.</p>
 
-      <div class="about-box">
-        Steno Sathi is a specialised remote stenography and legal-secretarial support service built exclusively for advocates, law firms and chambers across India. 
-        Every stenographer working with us has <strong>at least 5+ years of hands-on experience</strong> in legal assistance, drafting support, courtroom documentation, dictation handling and e-filing preparation.<br><br>
-
-        Our team is trained to understand the structure of pleadings, annexures, cause lists, formatting rules and court-specific requirements — giving every advocate the advantage of a skilled personal steno without the need for an in-chamber employee. 
-        <br><br>
-
-        We combine speed, accuracy and confidentiality to deliver work that meets the high-pressure demands of litigation. Whether it's an urgent filing, a last-minute dictation, or long-format documentation, Steno Sathi ensures your work is done right — and always on time.
+    <!-- ABOUT US -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p class="lead">Professional, experienced and committed to confidentiality.</p>
+        <div class="about-box">
+          Steno Sathi is a specialised remote stenography and legal-secretarial support service built exclusively for advocates, law firms and chambers across India.
+          Every stenographer working with us has <strong>at least 5+ years of hands-on experience</strong> in legal assistance, drafting support, courtroom documentation, dictation handling and e-filing preparation.<br><br>
+          Our team is trained to understand the structure of pleadings, annexures, cause lists, formatting rules and court-specific requirements — giving every advocate the advantage of a skilled personal steno without the need for an in-chamber employee.<br><br>
+          We combine speed, accuracy and confidentiality to deliver work that meets the high-pressure demands of litigation. Whether it's an urgent filing, a last-minute dictation, or long-format documentation, Steno Sathi ensures your work is done right — and always on time.
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- WHY CHOOSE -->
     <section class="section" id="why" aria-labelledby="whyTitle" style="background:#eef4f7;">
       <div class="container">
         <h2 id="whyTitle">Why Advocates Choose Steno Sathi</h2>
         <p class="lead">We make administrative legal work simpler so advocates can focus on practice.</p>
-
         <div class="grid features-grid" style="margin-top:20px">
           <div class="feature" role="article">
             <i class="fas fa-stopwatch" aria-hidden="true"></i>
             <h4>Fast Turnaround</h4>
             <p style="color:#556471">Same-day and urgent options — stenographer available within 2 hours for priority tasks.</p>
           </div>
-
           <div class="feature" role="article">
             <i class="fas fa-shield-alt" aria-hidden="true"></i>
             <h4>Accurate Formatting</h4>
             <p style="color:#556471">Court-accepted pagination, spacing and annexure sequencing — files ready for upload or printing.</p>
           </div>
-
           <div class="feature" role="article">
             <i class="fas fa-credit-card" aria-hidden="true"></i>
             <h4>Multiple Payment Options</h4>
             <p style="color:#556471">UPI, Credit Card, Debit Card, Netbanking — convenient payment choices for smooth processing.</p>
           </div>
-
           <div class="feature" role="article">
             <i class="fas fa-headset" aria-hidden="true"></i>
             <h4>Reliable Communication</h4>
@@ -300,55 +226,11 @@
       <div class="container">
         <h2 id="pricingTitle">Pricing</h2>
         <p class="lead">Clear, transparent rates. Contact for bulk discounts or monthly retainer plans.</p>
-
-        <div class="grid pricing-grid" style="margin-top:18px">
-          <div class="price-card card" role="article" aria-labelledby="p1">
-            <h3 id="p1">Live On-Call Dictation</h3>
-            <div class="price"><span class="strikethrough">₹1,000</span> <strong style="color:#16a34a;font-size:18px">₹500</strong> <span class="discount-badge">50% OFF</span> per hour</div>
-            <p class="note">Real-time typing while on audio/video calls.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p2">
-            <h3 id="p2">Audio Recorded Dictation</h3>
-            <div class="price"><span class="strikethrough">₹2,000</span> <strong style="color:#16a34a;font-size:18px">₹1,000</strong> <span class="discount-badge">50% OFF</span> per hour</div>
-            <p class="note">Transcription of recorded audio files.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p3">
-            <h3 id="p3">E-Filing Assistance</h3>
-            <div class="price"><span class="strikethrough">₹500 – ₹1,000</span> <strong style="color:#16a34a;font-size:18px">₹250 - ₹500</strong> <span class="discount-badge">50% OFF</span> per case</div>
-            <p class="note">Includes PDF prep, bookmarking, compression, renaming and upload guidance.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p4">
-            <h3 id="p4">Urgent Steno-On-Call</h3>
-            <div class="price"><span class="strikethrough">₹1,500</span> <strong style="color:#16a34a;font-size:18px">₹750</strong> <span class="discount-badge">50% OFF</span> per hour</div>
-            <p class="note">Stenographer available within 2 hours for priority tasks.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p5">
-            <h3 id="p5">Typed Copies of Scanned Docs / Judgments</h3>
-            <div class="price"><span class="strikethrough">₹500</span> <strong style="color:#16a34a;font-size:18px">₹250</strong> <span class="discount-badge">50% OFF</span> (up to 20 pages)</div>
-            <p class="note">Accurate typed versions of scans and judgments; larger batches quoted separately.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p6">
-            <h3 id="p6">Digitalisation of Advocate's Diary</h3>
-            <div class="price"><span class="strikethrough">₹2,000</span> <strong style="color:#16a34a;font-size:18px">₹1,000</strong> <span class="discount-badge">50% OFF</span> (up to 100 cases)</div>
-            <p class="note">Organised digital diary with searchable records and backups.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p7">
-            <h3 id="p7">Arbitration Support</h3>
-            <div class="price"><span class="strikethrough">₹3,000</span> <strong style="color:#16a34a;font-size:18px">₹1,500</strong> <span class="discount-badge">50% OFF</span> per session (In-Person)</div>
-            <p class="note">On-site arbitration stenography and assistance. <strong>Extra 25% off for video conference mode (₹1,125)</strong>.</p>
-          </div>
-
-          <div class="price-card card" role="article" aria-labelledby="p8">
-            <h3 id="p8">Document Translation</h3>
-            <div class="price"><span class="strikethrough">₹200 – ₹800</span> <strong style="color:#16a34a;font-size:18px">₹100 - ₹400</strong> <span class="discount-badge">50% OFF</span> per page</div>
-            <p class="note">Professional legal document translation; pricing varies by language pair and complexity.</p>
-          </div>
+        <div class="grid pricing-grid" style="margin-top:18px" id="pricingGrid">
+          <!-- Skeleton -->
+          <div class="price-card card"><div class="skel" style="width:70%"></div><div class="skel" style="width:50%"></div><div class="skel" style="width:90%"></div></div>
+          <div class="price-card card"><div class="skel" style="width:70%"></div><div class="skel" style="width:50%"></div><div class="skel" style="width:90%"></div></div>
+          <div class="price-card card"><div class="skel" style="width:70%"></div><div class="skel" style="width:50%"></div><div class="skel" style="width:90%"></div></div>
         </div>
       </div>
     </section>
@@ -358,18 +240,15 @@
       <div class="container">
         <h2 id="testimonialsTitle">What Advocates Say About Us</h2>
         <p class="lead">Trusted by busy chambers across India.</p>
-
         <div class="grid testimonials-grid" role="list">
           <div class="testimonial" role="listitem">
             <h4>Adv. R. Mehta — Delhi High Court</h4>
             <p>"Steno Sathi has become an extension of my chamber — reliable, confidential and incredibly fast. They saved me during a last-minute filing."</p>
           </div>
-
           <div class="testimonial" role="listitem">
             <h4>Adv. S. Purohit — Jaipur District Court</h4>
             <p>"Impeccable formatting and responsive communication. Their urgent steno-on-call service is a lifesaver."</p>
           </div>
-
           <div class="testimonial" role="listitem">
             <h4>Adv. M. Nair — Bombay High Court</h4>
             <p>"Very professional. Drafts come back court-ready and the 24-hour deletion policy gives me peace of mind about confidentiality."</p>
@@ -378,12 +257,11 @@
       </div>
     </section>
 
-    <!-- PRIVACY / DATA DELETION -->
+    <!-- PRIVACY -->
     <section class="section" id="privacy" aria-labelledby="privacyTitle">
       <div class="container">
         <h2 id="privacyTitle">Your Data, Protected</h2>
         <p class="lead">Confidentiality is essential in legal work — we treat it as such.</p>
-
         <div class="privacy">
           <h3>Automatic 24-Hour Data Deletion</h3>
           <p>All documents, audio files, drafts and PDFs you share with Steno Sathi are <strong>automatically deleted within 24 hours</strong> after delivery. We do not store or archive client case files on our systems beyond the delivery window.</p>
@@ -396,7 +274,6 @@
       <div class="container">
         <h2 id="contactTitle">Contact Us</h2>
         <p class="lead">Quickest way to start: message on WhatsApp or request a callback and we'll reach you within working hours.</p>
-
         <div class="contact-grid" style="margin-top:18px">
           <div>
             <div class="contact-card">
@@ -408,16 +285,14 @@
                 <li>Receive typed & formatted drafts in a secured password protected folder.</li>
               </ol>
             </div>
-
             <div class="card" style="margin-top:14px;padding:18px">
               <h3>Operational Hours</h3>
               <p style="color:#556471;margin-top:6px">9:00 AM — 10:00 PM, Monday — Sunday. Urgent/on-call support available subject to availability.</p>
             </div>
           </div>
-
           <aside class="contact-card" aria-label="Contact card">
-            <a href="https://wa.me/919217034234" aria-label="Message on WhatsApp" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:10px"><i class="fab fa-whatsapp" style="font-size:18px;color:#00a86b"></i> WhatsApp: +91-9217034234</a>
-            <a href="mailto:contact@stenosathi.in" aria-label="Email Steno Sathi" style="display:inline-flex;align-items:center;gap:10px"><i class="fas fa-envelope" style="color:#003f5c"></i> contact@stenosathi.in</a>
+            <a href="https://wa.me/919217034234" aria-label="Message on WhatsApp" data-track="whatsapp" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:10px"><i class="fab fa-whatsapp" style="font-size:18px;color:#00a86b"></i> WhatsApp: +91-9217034234</a>
+            <a href="mailto:contact@stenosathi.in" aria-label="Email Steno Sathi" data-track="email" style="display:inline-flex;align-items:center;gap:10px"><i class="fas fa-envelope" style="color:#003f5c"></i> contact@stenosathi.in</a>
             <div style="margin-top:12px;color:#556471;font-size:14px">Multiple payment options: UPI / Bank transfer / Card</div>
           </aside>
         </div>
@@ -428,54 +303,138 @@
   <footer>
     <div class="container">
       © <span id="year"></span> Steno Sathi — Fast. Accurate. Your Remote Chamber Assistant.
-		    <p style="margin-top:12px;font-size:13px;color:#999;"><a href="terms-and-conditions.html" style="color:#999;text-decoration:none;">Terms & Conditions</a> | <a href="privacy-policy.html" style="color:#999;text-decoration:none;">Privacy Policy</a> | <a href="refund-cancellation-policy.html" style="color:#999;text-decoration:none;">Refund & Cancellation</a></p>
+      <p style="margin-top:12px;font-size:13px;color:#999;"><a href="terms-and-conditions.html" style="color:#999;text-decoration:none;">Terms & Conditions</a> | <a href="privacy-policy.html" style="color:#999;text-decoration:none;">Privacy Policy</a> | <a href="refund-cancellation-policy.html" style="color:#999;text-decoration:none;">Refund & Cancellation</a></p>
     </div>
   </footer>
 
   <script>
-    // footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // ── Supabase config ───────────────────────────────────────────
+  var SB_URL = 'https://fgzrdujqgfzkdugvkemt.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZnenJkdWpxZ2Z6a2R1Z3ZrZW10Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4Njc2ODMsImV4cCI6MjA5MzQ0MzY4M30.hC99YGeKEALsnFpLxgkbXVciUytMfFdH7vK5B3U2Zu8';
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        var target = this.getAttribute('href');
-        if(target && target.length>1){
-          e.preventDefault();
-          var el = document.querySelector(target);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      });
+  function sbFetch(path) {
+    return fetch(SB_URL + '/rest/v1/' + path, {
+      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+    }).then(function(r){ return r.json(); });
+  }
+
+  // ── Render services ───────────────────────────────────────────
+  function renderServices(services) {
+    var grid = document.getElementById('servicesGrid');
+    if (!services || !services.length) {
+      grid.innerHTML = '<p style="color:#556471">No services available at this time.</p>';
+      return;
+    }
+    grid.innerHTML = services.map(function(s, i) {
+      return '<article class="card" role="listitem" aria-labelledby="s'+(i+1)+'">' +
+        '<i class="' + (s.icon || 'fas fa-star') + '" aria-hidden="true"></i>' +
+        '<h3 id="s'+(i+1)+'">' + escHtml(s.title) + '</h3>' +
+        '<p>' + escHtml(s.description) + '</p>' +
+      '</article>';
+    }).join('');
+  }
+
+  // ── Render pricing ────────────────────────────────────────────
+  function renderPricing(pricing, discountPct) {
+    var grid = document.getElementById('pricingGrid');
+    if (!pricing || !pricing.length) {
+      grid.innerHTML = '<p style="color:#556471">Pricing information coming soon.</p>';
+      return;
+    }
+    grid.innerHTML = pricing.map(function(p, i) {
+      var base    = parseFloat(String(p.base_price).replace(/[^0-9.]/g,'')) || 0;
+      var hasDisc = discountPct > 0 && discountPct < 100;
+      var discAmt = hasDisc ? Math.round(base * (1 - discountPct/100)) : base;
+
+      var priceHtml;
+      if (hasDisc && base > 0) {
+        priceHtml = '<span class="strikethrough">₹' + p.base_price + '</span> ' +
+          '<strong style="color:#16a34a;font-size:18px">₹' + discAmt + '</strong> ' +
+          '<span class="discount-badge">' + discountPct + '% OFF</span> ' + escHtml(p.unit);
+      } else {
+        priceHtml = '<strong>₹' + escHtml(p.base_price) + '</strong> ' + escHtml(p.unit);
+      }
+
+      return '<div class="price-card card" role="article" aria-labelledby="p'+(i+1)+'">' +
+        '<h3 id="p'+(i+1)+'">' + escHtml(p.title) + '</h3>' +
+        '<div class="price">' + priceHtml + '</div>' +
+        (p.note ? '<p class="note">' + escHtml(p.note) + '</p>' : '') +
+      '</div>';
+    }).join('');
+  }
+
+  // ── Render banner ─────────────────────────────────────────────
+  function renderBanner(config) {
+    var banner = document.getElementById('saleBanner');
+    if (!config || !config.banner_enabled) { banner.style.display = 'none'; return; }
+    banner.style.display = 'block';
+    document.getElementById('bannerText').textContent = config.banner_text || '🔥 SALE ON NOW!';
+    startCountdown(config.sale_end_day || 'sunday');
+  }
+
+  // ── Countdown ─────────────────────────────────────────────────
+  function startCountdown(endDay) {
+    var dayMap = {sunday:0,monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6};
+    var targetDay = dayMap[endDay.toLowerCase()] !== undefined ? dayMap[endDay.toLowerCase()] : 0;
+
+    function update() {
+      var now = new Date();
+      var end = new Date();
+      end.setHours(23,59,59,999);
+      var diff = targetDay - now.getDay();
+      if (diff < 0 || (diff === 0 && now > end)) diff += 7;
+      end.setDate(end.getDate() + diff);
+      var ms = end - now;
+      if (ms <= 0) return;
+      document.getElementById('days').textContent    = Math.floor(ms/86400000);
+      document.getElementById('hours').textContent   = Math.floor((ms%86400000)/3600000);
+      document.getElementById('minutes').textContent = Math.floor((ms%3600000)/60000);
+      document.getElementById('seconds').textContent = Math.floor((ms%60000)/1000);
+    }
+    update();
+    setInterval(update, 1000);
+  }
+
+  function escHtml(str) {
+    return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── Boot ──────────────────────────────────────────────────────
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  Promise.all([
+    sbFetch('site_config?id=eq.1&select=*'),
+    sbFetch('services?is_active=eq.true&order=display_order.asc&select=*'),
+    sbFetch('pricing?is_active=eq.true&order=display_order.asc&select=*'),
+  ]).then(function(results) {
+    var config   = results[0] && results[0][0];
+    var services = results[1] || [];
+    var pricing  = results[2] || [];
+    var disc     = config ? (config.discount_pct || 0) : 0;
+
+    renderBanner(config);
+    renderServices(services);
+    renderPricing(pricing, disc);
+  }).catch(function() {
+    // Supabase unavailable — show fallback static content
+    document.getElementById('servicesGrid').innerHTML =
+      '<p style="color:#556471;padding:20px">Services loading failed. Please refresh.</p>';
+    document.getElementById('pricingGrid').innerHTML =
+      '<p style="color:#556471;padding:20px">Pricing loading failed. Please refresh.</p>';
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = this.getAttribute('href');
+      if(t && t.length>1){ e.preventDefault(); var el=document.querySelector(t); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
     });
-	   // Black Friday Countdown Timer
- function startCountdown() {
-  // Get next Sunday at 11:59 PM IST
-  const now = new Date();
-  let endDate = new Date();
-  endDate.setHours(23, 59, 59, 999);
-  const daysUntilSunday = (0 - now.getDay() + 7) % 7 || 7;
-  endDate.setDate(endDate.getDate() + daysUntilSunday);
-  
-  const updateTimer = () => {
-    const now = new Date();
-    const diff = endDate - now;
-    if (diff <= 0) return;
-    
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-  };
-  
-  updateTimer();
-  setInterval(updateTimer, 1000);
- }
- startCountdown();
+  });
   </script>
+
+  <!-- Analytics Engine -->
+  <script src="analytics.js"></script>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"295fda5146a94eeda131593deb87084a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
