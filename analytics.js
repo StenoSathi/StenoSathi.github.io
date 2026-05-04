@@ -85,6 +85,61 @@
     return c ? (c.effectiveType || c.type || 'unknown') : 'unknown';
   }
 
+
+  // ── Search Keyword Extraction ─────────────────────────────────
+  function getSearchKeyword() {
+    var utmTerm = new URLSearchParams(window.location.search).get('utm_term');
+    if (utmTerm) return utmTerm;
+    var ref = document.referrer;
+    if (!ref) return null;
+    try {
+      var u = new URL(ref);
+      var host = u.hostname.toLowerCase();
+      if (host.indexOf('bing.com') !== -1)       return u.searchParams.get('q');
+      if (host.indexOf('duckduckgo.com') !== -1)  return u.searchParams.get('q');
+      if (host.indexOf('yahoo.com') !== -1)       return u.searchParams.get('p') || u.searchParams.get('q');
+      if (host.indexOf('yandex.') !== -1)         return u.searchParams.get('text');
+      if (host.indexOf('google.') !== -1)         return u.searchParams.get('q'); // null for organic, set for some Ads
+    } catch(e) {}
+    return null;
+  }
+
+  // ── Device Model Detection ────────────────────────────────────
+  function getDeviceModel() {
+    var ua = navigator.userAgent;
+    var iosMatch = ua.match(/iPhone OS ([\d_]+)/);
+    if (iosMatch) {
+      var v = iosMatch[1].replace(/_/g,'.');
+      var major = parseInt(v);
+      var model = major >= 18 ? 'iPhone 16 series' : major >= 17 ? 'iPhone 15 series' :
+                  major >= 16 ? 'iPhone 14 series' : major >= 15 ? 'iPhone 13 series' :
+                  major >= 14 ? 'iPhone 12 series' : major >= 13 ? 'iPhone 11 series' : 'iPhone (older)';
+      return model + ' (iOS ' + v + ')';
+    }
+    if (/iPad/.test(ua)) {
+      var ipad = ua.match(/iPad OS ([\d_]+)/);
+      return 'iPad' + (ipad ? ' iOS ' + ipad[1].replace(/_/g,'.') : '');
+    }
+    var sam = ua.match(/SM-([A-Z][0-9]+[A-Z0-9]*)/i);
+    if (sam) return 'Samsung SM-' + sam[1];
+    var xm = ua.match(/; (Redmi[^;)]+|POCO[^;)]+|Mi [A-Za-z0-9]+)/);
+    if (xm) return xm[1].replace(/Build.*/,'').trim();
+    var op = ua.match(/OnePlus([^;)]+?)(?:Build|\))/);
+    if (op) return 'OnePlus ' + op[1].trim();
+    var px = ua.match(/; (Pixel [0-9a-zA-Z]+)/);
+    if (px) return 'Google ' + px[1].trim();
+    var vi = ua.match(/; (vivo [A-Za-z0-9]+)/i);
+    if (vi) return vi[1].trim();
+    var op2 = ua.match(/; (CPH[0-9]+|RMX[0-9]+)/i);
+    if (op2) return op2[1].trim();
+    var rm = ua.match(/; (Realme [A-Za-z0-9 ]+?)(?:Build|\))/i);
+    if (rm) return rm[1].trim();
+    var moto = ua.match(/; (moto[A-Za-z0-9 _]+?)(?:Build|\))/i);
+    if (moto) return moto[1].trim();
+    if (/Android/i.test(ua)) return 'Android device';
+    return null;
+  }
+
   function getOrSetVisitorId() {
     var vid = localStorage.getItem('ss_visitor_id');
     if (!vid) { vid = uid(); localStorage.setItem('ss_visitor_id', vid); }
@@ -137,11 +192,56 @@
     copy_events:             0,
     phone_number_copied:     false,
     email_address_copied:    false,
+    // ── New deep analytics fields ──
+    search_keyword:          getSearchKeyword(),
+    device_model:            getDeviceModel(),
+    is_touch_device:         navigator.maxTouchPoints > 0,
+    pixel_ratio:             window.devicePixelRatio || 1,
+    screen_orientation:      (window.screen.orientation ? window.screen.orientation.type : (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait')).split('-')[0],
+    orientation_changes:     0,
+    tab_switches:            0,
+    hidden_time_sec:         0,
+    first_interaction_sec:   null,
   };
 
   window.addEventListener('load', function () {
     session.page_load_ms = Math.round(performance.now() - pageLoadStart);
   });
+
+  // ─── Orientation Changes ────────────────────────────────────
+  window.addEventListener('orientationchange', function() {
+    session.orientation_changes++;
+    session.screen_orientation = (window.screen.orientation ?
+      window.screen.orientation.type : (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait')).split('-')[0];
+  });
+
+  // ─── Tab Visibility (focus tracking) ────────────────────────
+  var hiddenStart = null;
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      session.tab_switches++;
+      hiddenStart = Date.now();
+    } else {
+      if (hiddenStart) {
+        session.hidden_time_sec += Math.round((Date.now() - hiddenStart) / 1000);
+        hiddenStart = null;
+      }
+    }
+  });
+
+  // ─── First Interaction Time ──────────────────────────────────
+  var firstInteractionDone = false;
+  function recordFirstInteraction() {
+    if (firstInteractionDone) return;
+    firstInteractionDone = true;
+    session.first_interaction_sec = Math.round(performance.now()) / 1000;
+    document.removeEventListener('click', recordFirstInteraction);
+    document.removeEventListener('scroll', recordFirstInteraction, true);
+    document.removeEventListener('touchstart', recordFirstInteraction, true);
+  }
+  document.addEventListener('click', recordFirstInteraction);
+  document.addEventListener('scroll', recordFirstInteraction, { passive: true, capture: true, once: true });
+  document.addEventListener('touchstart', recordFirstInteraction, { passive: true, capture: true, once: true });
 
   // ─── Scroll Depth ─────────────────────────────────────────────
   var milestones = [25, 50, 75, 90, 100];
@@ -332,8 +432,8 @@
       time_per_section:       session.time_per_section,
       pricing_cards_hovered:  session.pricing_cards_hovered,
       service_cards_viewed:   session.service_cards_viewed,
-      testimonial_viewed:      session.testimonial_viewed,
-      countdown_timer_seen:    session.countdown_timer_seen,
+      testimonial_viewed:     session.testimonial_viewed,
+      countdown_timer_seen:   session.countdown_timer_seen,
       cta_clicks:             session.cta_clicks,
       whatsapp_clicks:        session.whatsapp_clicks,
       callback_form_clicks:   session.callback_form_clicks,
@@ -345,6 +445,15 @@
       copy_events:            session.copy_events,
       phone_number_copied:    session.phone_number_copied,
       email_address_copied:   session.email_address_copied,
+      search_keyword:         session.search_keyword,
+      device_model:           session.device_model,
+      is_touch_device:        session.is_touch_device,
+      pixel_ratio:            session.pixel_ratio,
+      screen_orientation:     session.screen_orientation,
+      orientation_changes:    session.orientation_changes,
+      tab_switches:           session.tab_switches,
+      hidden_time_sec:        session.hidden_time_sec,
+      first_interaction_sec:  session.first_interaction_sec,
     }]);
 
     // Use sendBeacon for reliability on page unload
